@@ -109,7 +109,7 @@ gulp.task('browser-sync', function() {
     notify: false,
     debounce: 200,
     startPath: 'index.html',
-    proxy: 'http://localhost/FYP2/www/',
+    proxy: 'http://localhost/FYP/www/',
   });
 
   gulp.watch([

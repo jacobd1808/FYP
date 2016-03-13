@@ -26,10 +26,14 @@ ons.ready(function() {
 	function init() { 
 		setDefaultChamp()
 	}
-
-	function setDefaultChamp() { 
-		var champ = localStorage.getItem("activeChamp");
-		$('#select-champ li[data-champ="'+champ+'"]').addClass();
+	// Set Default Champ (In Menu)
+	function setDefaultChamp() {
+		if (localStorage.getItem("activeChamp") === null) {
+		  	var champ = 'junior';
+		} else {
+			var champ = localStorage.getItem("activeChamp");
+		}
+		$('#select-champ li[data-champ="'+champ+'"]').addClass('active');
 	}
 	// On Menu Open
 	leftMenu.on("preopen", function() {
@@ -41,6 +45,7 @@ ons.ready(function() {
 	});
 	// Show Championship Select Modal
 	$( "body" ).on( "click", "#show-champ-modal", function() {
+		setDefaultChamp();
 	    myModal.show();
   	});
 	// Close Championship Select Modal 

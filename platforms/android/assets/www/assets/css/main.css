@@ -612,3 +612,36 @@ html, body {
     .list--main-nav .list__item .app-logo {
       width: 55%;
       margin: 15px 0; }
+
+/* =====================
+	MODULE SCSS FILE  
+====================== */
+/* =====================
+	Race Calandar 
+====================== */
+.race-tile {
+  text-align: center;
+  background-color: black;
+  height: 150px;
+  margin: 10px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../img/circuit_backgrounds/junior_1.jpg"); }
+  .race-tile div.race-content {
+    bottom: 0;
+    position: absolute;
+    text-align: left;
+    padding: 10px;
+    width: 100%; }
+    .race-tile div.race-content strong {
+      font-size: 1.1em; }
+    .race-tile div.race-content span {
+      color: white;
+      font-weight: 200;
+      font-size: 0.9em; }
+    .race-tile div.race-content .icn {
+      float: right;
+      bottom: 10px;
+      margin-right: 20px;
+      color: white; }

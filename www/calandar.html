@@ -12,7 +12,13 @@
     <ng-include src="'components/champSelect.html'"></ng-include>
 
     <div ng-repeat="x in race" class='race-tile'> 
-         <p ng-bind="x.race_date | date:'MM/dd/yyyy'"> </p>
+        <div class='race-content'>
+            <strong> {{ x.name }} </strong> <br />
+            <span ng-bind="x.race_date | date:'MM . dd . yyyy'"> </span>
+            <div class='icn'> 
+                <i class="fa fa-star-o"></i>
+            </div>
+        </div>
     </div>
     Hello
   </ons-page>
