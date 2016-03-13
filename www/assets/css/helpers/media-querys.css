@@ -1,0 +1,13 @@
+/* For Tablet Only */
+/* For Desktop Only */
+/*						*/
+/* NEW ELEMENTS CREATED */
+/* 						*/
+/* Top Bar */
+@media (min-width: 320px) {
+  .res-padding {
+    padding-left: 2%;
+    padding-right: 2%; }
+  .res-margin {
+    margin-left: 2%;
+    margin-right: 2%; } }

@@ -1,0 +1,12 @@
+
+$app-font: 'Roboto', sans-serif;
+
+// Background 
+$bgMain: #222222;
+$bgDarken: darken($bgMain, 10%);
+$bgLighten: lighten($bgMain, 10%);
+
+// Primary Theme
+$primary: #f45b00;
+$primaryDarken: darken($primary, 10%);
+$primaryLighten: lighten($primary, 10%);

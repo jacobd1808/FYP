@@ -1,0 +1,87 @@
+
+.navigation-bar { 
+	font-size: 0.9em;
+	font-weight: bold; 
+	background-color: $bgDarken;
+}
+
+.champ-modal-popup {
+	.champ-toolbar { 
+		background-color: #111;
+		font-size: 13px;
+		width: 80%;
+		margin: auto;
+		padding: 15px 0;
+		font-weight: 600;
+		border-bottom: 1px solid $bgLighten;
+		color: white;
+	}
+	.champ-icon { 
+		margin-bottom: 15px;
+		color: white;
+	}
+	#select-champ { 
+		background-color: #111;
+		margin: auto;
+		padding: 0;
+		width: 80%;
+		li { 
+			border-bottom: 1px solid #222;
+			padding: 15px 0;
+			list-style-type: none;
+			text-align: center;
+			img { 
+				width: 80%;
+			}
+			&.active { 
+				background-color: #333;
+			}
+		}
+	}
+}
+
+.navigation-bar .ng-isolate-scope{ 
+	padding: 15px 0;
+    text-align: center; 
+    .ons-icon--ion { 
+    	font-size: 27px;
+    } 
+    &#show-champ-modal { 
+    	.ons-icon--ion { 
+   	 		font-size: 20px;
+    	} 
+    }
+    &.active {
+    	background-color: white;
+	    .ons-icon--ion { 
+	    	color: black;
+	    } 
+	}
+}
+/*.onsen-sliding-menu__main { 
+	opacity: 1.0;
+	&.active { 
+		opacity: 0.7;
+	}
+}*/
+
+.list--main-nav {
+	height: 100%;
+	background-color: $bgMain!important;
+	.list__item {
+		border-bottom: 1px solid $bgLighten!important;
+		&:first-child {
+			text-align: center; 
+			min-height: 0;
+			line-height: 0;
+		}
+		.app-logo { 
+			width: 55%;
+			margin: 15px 0;
+		}
+	}
+}
+
+
+
+

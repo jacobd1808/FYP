@@ -1,0 +1,18 @@
+
+  <ons-page ng-controller="calandarController">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button id='menu-icon' ng-click="leftMenu.toggleMenu()"> <ons-icon icon="ion-navicon"></ons-icon></ons-toolbar-button>
+        </div>
+        <div class="center" modifier="title">Race Calandar</div>
+        <div class="right">
+            <ons-toolbar-button id='show-champ-modal'> <ons-icon icon="ion-trophy"></ons-icon> </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+    <ng-include src="'components/champSelect.html'"></ng-include>
+
+    <div ng-repeat="x in race" class='race-tile'> 
+         <p ng-bind="x.race_date | date:'MM/dd/yyyy'"> </p>
+    </div>
+    Hello
+  </ons-page>

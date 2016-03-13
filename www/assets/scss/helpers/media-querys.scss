@@ -1,0 +1,46 @@
+$mobile-port: 320px;
+$mobile-land: 420px; 
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile-port {
+	@media (min-width: #{$mobile-port}) {
+		@content;
+	}
+}
+
+@mixin mobile { 
+	@media only screen and (min-device-width : #{$mobile-port}) and (max-device-width : #{$mobile-land}) {
+		@content;
+	}
+} 
+/* For Tablet Only */ 
+@mixin tablet {
+	@media only screen and (min-device-width: #{$tablet-width + 1px }) and (max-device-width: #{$desktop-width - 1px}) {
+		@content; 
+	}
+}
+
+/* For Desktop Only */ 
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+/*						*/ 
+/* NEW ELEMENTS CREATED */
+/* 						*/ 
+ 
+/* Top Bar */ 
+ 
+@include mobile-port { 
+	.res-padding { 
+		padding-left: 2%;
+		padding-right: 2%;
+	} 
+	.res-margin { 
+		margin-left: 2%;
+		margin-right: 2%; 
+	} 
+}

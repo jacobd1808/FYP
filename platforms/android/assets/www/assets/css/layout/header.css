@@ -1,0 +1,22 @@
+#select-champ {
+  background-color: red;
+  margin: 0;
+  width: 80%;
+  padding: 0; }
+  #select-champ li {
+    border-bottom: 1px solid #222;
+    padding: 15px 0;
+    list-style-type: none;
+    text-align: center; }
+    #select-champ li img {
+      width: 80%; }
+
+.list--main-nav {
+  height: 100%; }
+  .list--main-nav .list__item:first-child {
+    text-align: center;
+    min-height: 0;
+    line-height: 0; }
+  .list--main-nav .list__item .app-logo {
+    width: 55%;
+    margin: 15px 0; }
