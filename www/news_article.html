@@ -1,0 +1,25 @@
+
+
+    <ons-page id='newsArticlePage'>
+        <ons-toolbar>
+            <div class="left">
+                <ons-back-button modifier='cust-back' id='backBtn' data-page='news'> </ons-back-button>
+            </div>
+            <div class="center" modifier="title">News Article</div>
+        </ons-toolbar>
+
+            <div id='news-article-container'> </div>
+
+            <script id="news-article-template" type="text/x-handlebars-template">
+                <div class='news-article grey-module'>
+                    <h2> {{ title }} </h2>
+                    <span class='news-cat'> {{ category }} </span>
+                    <div class='news-content'> 
+                        {{{ content }}}
+                        <span class='news-date'>
+                            {{ formatDate release_date }} 
+                        </span>
+                    </div>  
+                </div>
+            </script>
+  </ons-page>

@@ -8,13 +8,13 @@
 	@import "helpers/media-querys";
 	// .. Base 
 	@import "base/base";
+		@import "layout/modules";
 	@import "base/typography";
 	// .. Components 
 	@import "components/forms";
 	@import "components/buttons";
 	// .. Layout 
 	@import "layout/header";
-	@import "layout/modules";
 	// .. Pages 
 
 

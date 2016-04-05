@@ -4,8 +4,20 @@ require 'Slim/Slim.php';
  
 $app = new Slim();
  
-$app->get('/drivers', 'getDrivers');
+$app->get('/drivers/:champ', 'getDrivers');
+$app->get('/driverInfo/:id', 'driverInfo');
+$app->get('/driverNews/:search', 'driverNews');
+
+$app->get('/teams', 'getTeams');
+
 $app->get('/races/:champ', 'getRaces');
+
+$app->get('/news/:filter', 'getNews');
+$app->get('/newsArticle/:id', 'getNewsById');
+
+$app->get('/getFav/:type/:itemID/:userID', 'getFav');
+$app->post('/addFav', 'addFav');
+$app->post('/deleteFav', 'deleteFav');
 /*$app->get('/wines/:id',  'getWine');
 $app->get('/wines/search/:query', 'findByName');
 $app->post('/wines', 'addWine');
@@ -14,12 +26,18 @@ $app->delete('/wines/:id',   'deleteWine');
 */
 
 $app->run();
- 
-function getDrivers() {
-    $sql = "select * FROM FYP_Drivers";
+
+/*  ======================
+    Drivers   
+========================*/ 
+
+function getDrivers($champ) {
+    $sql = "select * FROM FYP_Drivers WHERE championship = :champ";
     try {
         $db = getConnection();
-        $stmt = $db->query($sql);
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("champ", $champ);
+        $stmt->execute();
         $drivers = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
         echo json_encode($drivers);
@@ -27,6 +45,61 @@ function getDrivers() {
         echo '{"error":{"text":'. $e->getMessage() .'}}';
     }
 }
+
+function driverInfo($id) {
+    $sql = 'select * FROM FYP_Drivers WHERE driver_id = :id';
+    try {
+        $db = getConnection();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("id", $id);
+        $stmt->execute();
+        $driver = $stmt->fetch(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($driver);
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+function driverNews($search) {
+    $search = "$search%";
+
+    $sql = "select * FROM FYP_News WHERE title LIKE :search ";
+    try {
+        $db = getConnection();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":search", $search);
+        $stmt->execute();
+        $news = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($news);
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+/*  ======================
+    Teams   
+========================*/ 
+
+function getTeams() {
+    $sql = "select * FROM FYP_Team"; 
+    try {
+        $db = getConnection();
+        $stmt = $db->prepare($sql);
+        //$stmt->bindParam("filter", $filter);
+        $stmt->execute();
+        $teams = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($teams);
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+/*  ======================
+    Drivers   
+========================*/ 
 
 function getRaces($champ) {
     $sql = 'select * FROM FYP_Races 
@@ -45,7 +118,105 @@ function getRaces($champ) {
         echo '{"error":{"text":'. $e->getMessage() .'}}';
     }
 }
- 
+
+/*  ======================
+    News    
+========================*/ 
+
+function getNews($filter) {
+    $sql = 'select * FROM FYP_News WHERE release_date <= CURDATE() AND category = :filter ORDER BY release_date DESC';
+    try {
+        $db = getConnection();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("filter", $filter);
+        $stmt->execute();
+        $news = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($news);
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+function getNewsById($id) {
+    $sql = 'select * FROM FYP_News WHERE release_date <= CURDATE() AND id = :id';
+    try {
+        $db = getConnection();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("id", $id);
+        $stmt->execute();
+        $news = $stmt->fetch(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($news);
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+/*  ======================
+    Fav    
+========================*/ 
+
+function getFav($type, $itemID, $userID) {
+    $sql = "select * FROM FYP_Fav WHERE fav_type = :type AND fav_item_id = :itemID AND user_id = :userID";
+    try {
+        $db = getConnection();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("type", $type);
+        $stmt->bindParam("itemID", $itemID);
+        $stmt->bindParam("userID", $userID);
+        $stmt->execute();
+        $fav = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        if($fav) {      
+            echo json_encode($fav);
+        }
+
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+function addFav() {
+    $request = Slim::getInstance()->request();
+    $fav = json_decode($request->getBody());
+    $sql = "INSERT INTO FYP_Fav (fav_type, fav_item_id, user_id) VALUES (:type, :itemID, :userID)";
+    try {
+        $db = getConnection();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("type", $fav->type);
+        $stmt->bindParam("itemID", $fav->itemID);
+        $stmt->bindParam("userID", $fav->userID);
+
+        $stmt->execute();
+        $fav->id = $db->lastInsertId();
+        $db = null;
+        echo json_encode($fav);
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+function deleteFav() {
+    $request = Slim::getInstance()->request();
+    $fav = json_decode($request->getBody());
+    $sql = "DELETE FROM FYP_Fav WHERE fav_type = :type AND fav_item_id = :itemID AND user_id = :userID";
+    try {
+        $db = getConnection();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam("type", $fav->type);
+        $stmt->bindParam("itemID", $fav->itemID);
+        $stmt->bindParam("userID", $fav->userID);
+
+        $stmt->execute();
+        $db = null;
+        echo json_encode($fav);
+    } catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+
 /*
 function getWine($id) {
     $sql = "SELECT * FROM wine WHERE id=:id";

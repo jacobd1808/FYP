@@ -1,0 +1,35 @@
+<ons-page id="news_driver.html">
+	<div id='drivers-bio'> </div>
+	<script id="drivers-bio-template" type="text/x-handlebars-template">
+	    <div class='driver-banner'> 
+	        <img src='assets/img/drivers/car/2016_CAR_junior_Seb_Perez.jpeg' alt='' class='banner-img'/>
+	    </div> 
+	    <div class='driver-bio-content'> 
+		    <div class='col-1-2'> 
+		        <img src='assets/img/drivers/mug/2016_DRIVER_challenge_Jonny_Greenwood.jpeg' alt='' class='thumb-img'/>
+		    </div>
+		    <div class='col-1-2'>
+			    <ul class='driver-bio-list'> 
+			    	<li> 
+			    		<strong> Team: </strong> 
+			    		{{ team_id }}
+			    	</li>
+			    	<li> 	
+			    		<strong> Age: </strong>
+			    		{{ dob }}
+			    	</li>
+			    	<li> 
+			    		<strong> Location: </strong>
+			    		{{ hometown }}
+			    	</li>
+			    </ul>
+			</div>
+		</div>
+
+	    <ul class='social-icon'> 
+	    	<li><i class="fa fa-globe"></i></li>
+	       	<li><i class="fa fa-facebook-square"></i></li>
+	        <li><i class="fa fa-twitter-square"></i></li>
+	    </ul>
+    </script>
+</ons-page>

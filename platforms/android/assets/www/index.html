@@ -17,7 +17,7 @@
     <!-- CSP support mode (required for Windows Universal apps) -->
     <link rel="stylesheet" href="lib/angular/angular-csp.css" />
     <!-- Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300, 200,500,700,900,400italic,500italic,300italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,200,500,700,900,400italic,500italic,300italic' rel='stylesheet' type='text/css'>
     <!-- App init  -->
     <title>Ginetta Race Day App</title>
     <script>
@@ -25,7 +25,7 @@
     </script>
 </head>
 
-<body id='page-frame' style='padding-top: 5px'>
+<body id='page-frame'>
     <!-- Cordova reference -->
     <!--<script src="cordova.js"></script>-->
     <!--<script src="scripts/index.js"></script>-->
@@ -33,7 +33,7 @@
 
     <!-- SLIDING MENU LEFT--> 
     <ons-sliding-menu 
-        main-page="calandar.html" 
+        main-page="drivers.html" 
         menu-page="menu.html" 
         side="left" 
         max-slide-distance="250px" 
@@ -48,27 +48,32 @@
 
     <ons-template id="index.html">
       <ons-page>
-        <ons-toolbar>
-            <div class="left">
-                <ons-toolbar-button id='menu-icon' ng-click="leftMenu.toggleMenu()">
-                    <ons-icon icon="ion-navicon"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-            <div class="center" modifier="title">Dashboard</div>
-            <div class="right">
-                <ons-toolbar-button id='show-champ-modal'>
-                    <ons-icon icon="ion-trophy"></ons-icon>
-                </ons-toolbar-button>
-            </div>
-        </ons-toolbar>
-        <ng-include src="'components/champSelect.html'"></ng-include>
-        <!-- --> 
-        <p>MAIN</p>
-        <!-- -->
-      </ons-page>
+        <ons-navigator var="myNav">
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button id='menu-icon' ng-click="leftMenu.toggleMenu()">
+                        <ons-icon icon="ion-navicon"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center" modifier="title">Dashboard</div>
+                <div class="right">
+                    <ons-toolbar-button id='show-champ-modal'>
+                        <ons-icon icon="ion-trophy" id='champ-icon'></ons-icon> 
+                    </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <ng-include src="'components/champSelect.html'"></ng-include>
+            <!-- --> 
+            <p>MAIN</p>
+            <!-- -->
+            <div id='checkLoad'> <!-- Load Hack --> </div>
+          </ons-page>
+        </ons-navigator>
     </ons-template>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="scripts/handlebars.js"></script>
+    <script src="scripts/moment.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

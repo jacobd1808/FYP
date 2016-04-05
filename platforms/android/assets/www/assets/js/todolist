@@ -1,0 +1,12 @@
+# Record of Changes / Bugs 
+	- Removed click event for changing the championship to the list item as opposed to the image 
+	- Trophy now changes colour based on championship selected 
+
+
+	// Circuits .. Circuits BIO 
+	// News .. News Story 
+	// Drivers .. Driver Profile 
+	// Team .. Team Profile 
+	// Results and Standings 
+	// About Ginetta 
+	// Shop 

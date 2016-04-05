@@ -1,0 +1,42 @@
+
+
+    <ons-page id='driversPage'>
+        <ons-navigator var="myNav">
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button id='menu-icon' ng-click="leftMenu.toggleMenu()"> <ons-icon icon="ion-navicon"></ons-icon></ons-toolbar-button>
+                </div>
+                <div class="center" modifier="title">Drivers</div>
+                <div class="right">
+                    <ons-toolbar-button id='show-champ-modal'> <ons-icon icon="ion-trophy" id='champ-icon'></ons-icon> </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <ng-include src="'components/champSelect.html'"></ng-include>
+
+            <div id='drivers-container'> </div>
+
+            <script id="drivers-template" type="text/x-handlebars-template">
+               <div class='drivers-tile'> 
+                    <div class='icn fav-icn save-to-fav no-parent-event' data-item-id=' {{ driver_id }}' data-type='driver'>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <div class='loadLink' data-page='driver_profile' data-tab='{{ driver_id }}' onClick="myNav.pushPage('driver_profile.html')">
+                        {{#if car_photo.length}}
+                            <img src='assets/img/drivers/car/{{ car_photo }}' alt='{{ driver_fname }} Avatar'/>
+                        {{else}}
+                            <img src='assets/img/drivers/mug/_ginetta-logo-fade.png' alt=''/>
+                        {{/if}}
+                        <div class='driver-info'> 
+                            <strong> 
+                                <span> 
+                                {{ driver_fname }} 
+                                </span>
+                                {{ driver_sname }}
+                            </strong > 
+                        </div>
+                    </div>
+                </div>
+            </script>
+
+        </ons-navigator>
+  </ons-page>

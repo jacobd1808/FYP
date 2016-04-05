@@ -548,6 +548,239 @@ html, body {
   font-size: 0.9em;
   font-weight: bold; }
 
+.vertical-align, .race-tile div.race-content div {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.col-1-2 {
+  width: 50%;
+  float: left; }
+
+.col-1-1 {
+  width: 100%;
+  float: left; }
+
+.col-1-3 {
+  float: left;
+  width: 33%; }
+
+/* =====================
+	MODULE SCSS FILE  
+====================== */
+.grey-module {
+  background-color: #222222;
+  color: white;
+  font-weight: 300;
+  font-size: 0.8em;
+  text-align: justify;
+  padding: 5%;
+  margin: 5%;
+  text-transform: initial; }
+  .grey-module h2 {
+    font-weight: 200;
+    margin: 0 0 10px 0;
+    font-size: 1.8em;
+    padding: 0 0 10px 0;
+    display: inline-block;
+    border-bottom: 2px solid #f45b00; }
+
+ons-carousel-item {
+  display: table;
+  text-align: center; }
+
+/* =====================
+	Race Calandar 
+====================== */
+.square-tile {
+  width: 50%; }
+
+.race-tile {
+  text-align: center;
+  background-color: black;
+  width: 92%;
+  margin: 4%;
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  height: 150px; }
+  .race-tile div.race-content {
+    font-size: 0.9em;
+    text-align: center;
+    height: 100%; }
+    .race-tile div.race-content div strong {
+      font-weight: 500;
+      padding: 10px;
+      display: inline-block;
+      border: 2px solid #f45b00;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.9); }
+    .race-tile div.race-content div span {
+      color: white;
+      font-weight: 300;
+      font-size: 0.9em;
+      background-color: #f45b00;
+      padding: 5px;
+      margin-top: 10px;
+      display: inline-block; }
+  .race-tile .icn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    z-index: 10; }
+
+.news-tile {
+  width: 90%;
+  margin: 5% auto; }
+  .news-tile img {
+    width: 100%;
+    display: block; }
+  .news-tile .description {
+    background-color: #222222;
+    padding: 5%; }
+    .news-tile .description small {
+      color: #999999;
+      font-weight: 300;
+      border-bottom: 2px solid #f45b00;
+      display: inline-block;
+      padding-bottom: 6px; }
+    .news-tile .description h2 {
+      font-size: 1.0em;
+      color: #dddddd;
+      font-weight: 200;
+      padding: 0;
+      margin: 10px 0 0 0; }
+
+#circuit-container {
+  text-align: center;
+  margin-top: 5%; }
+  #circuit-container .circuit-map img {
+    width: 200px; }
+  #circuit-container .circuit_info {
+    margin-bottom: 15px; }
+    #circuit-container .circuit_info span {
+      font-weight: bold;
+      text-transform: uppercase !important; }
+
+#news-article-container .news-cat {
+  display: inline-block;
+  background-color: #090909;
+  color: white;
+  padding: 5px;
+  margin: 3px 0;
+  text-transform: uppercase;
+  font-size: 1.0em; }
+
+#news-article-container .news-content {
+  font-weight: 300;
+  font-size: 1.0em;
+  line-height: 150%; }
+  #news-article-container .news-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px !important; }
+  #news-article-container .news-content .news-date {
+    font-size: 0.8em;
+    font-style: italic;
+    color: #999999; }
+  #news-article-container .news-content strong {
+    font-weight: 400; }
+
+.drivers-tile {
+  width: 42.5%;
+  margin: 5% 5% 0 5%;
+  background-color: #222222;
+  float: left;
+  text-align: center;
+  position: relative; }
+  .drivers-tile:nth-child(2n) {
+    margin-left: 0; }
+  .drivers-tile img {
+    width: 100%;
+    height: auto;
+    float: left; }
+  .drivers-tile .driver-no {
+    position: absolute;
+    background-color: #f45b00;
+    padding: 5px 0;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    text-align: center;
+    width: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.6em; }
+  .drivers-tile .icn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 3px 5px; }
+  .drivers-tile .driver-info {
+    text-align: left;
+    padding: 5px; }
+    .drivers-tile .driver-info strong {
+      font-size: 0.8em;
+      font-weight: 300;
+      margin: 0;
+      color: white;
+      display: inline-block;
+      padding: 5px 0 2px 0; }
+      .drivers-tile .driver-info strong span {
+        font-size: 1.3em;
+        display: block;
+        font-weight: 700; }
+
+#driverProfile .driver-banner {
+  text-align: center;
+  position: relative; }
+  #driverProfile .driver-banner img.banner-img {
+    width: 100%;
+    height: auto; }
+  #driverProfile .driver-banner img.thumb-img {
+    display: inline-block;
+    position: absolute;
+    width: 20%;
+    z-index: 2;
+    top: 10px;
+    right: 10px; }
+
+#driverProfile .driver-bio-content {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 10;
+  margin-top: -15px; }
+  #driverProfile .driver-bio-content .driver-bio-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 5%;
+    color: white;
+    text-align: center;
+    float: left; }
+    #driverProfile .driver-bio-content .driver-bio-list img {
+      width: 60%; }
+    #driverProfile .driver-bio-content .driver-bio-list li {
+      padding: 10px;
+      text-align: left;
+      margin: 0;
+      font-weight: 300; }
+      #driverProfile .driver-bio-content .driver-bio-list li strong {
+        font-size: 0.6em;
+        display: block; }
+
+.toolbar-button--cust-back i {
+  font-size: 26px !important; }
+
+.header-fav {
+  padding: 12px; }
+
 .navigation-bar {
   font-size: 0.9em;
   font-weight: bold;
@@ -567,23 +800,35 @@ html, body {
   margin-bottom: 15px;
   color: white; }
 
-.champ-modal-popup #select-champ {
+.champ-modal-popup .champ-filter {
   background-color: #111;
   margin: auto;
   padding: 0;
-  width: 80%; }
-  .champ-modal-popup #select-champ li {
+  width: 80%;
+  margin: 0 10% 30px 10%; }
+  .champ-modal-popup .champ-filter li {
     border-bottom: 1px solid #222;
     padding: 15px 0;
     list-style-type: none;
     text-align: center; }
-    .champ-modal-popup #select-champ li img {
-      width: 80%; }
-    .champ-modal-popup #select-champ li.active {
+    .champ-modal-popup .champ-filter li img {
+      width: 90%; }
+    .champ-modal-popup .champ-filter li.active {
       background-color: #333; }
+  .champ-modal-popup .champ-filter.news-filter {
+    float: left; }
+    .champ-modal-popup .champ-filter.news-filter li {
+      width: 50%;
+      float: left; }
+      .champ-modal-popup .champ-filter.news-filter li:last-child {
+        width: 100%; }
+        .champ-modal-popup .champ-filter.news-filter li:last-child img {
+          width: 45%; }
+      .champ-modal-popup .champ-filter.news-filter li.active {
+        background-color: #333; }
 
 .navigation-bar .ng-isolate-scope {
-  padding: 15px 0;
+  padding: 15px 5px;
   text-align: center; }
   .navigation-bar .ng-isolate-scope .ons-icon--ion {
     font-size: 27px; }
@@ -611,37 +856,4 @@ html, body {
       line-height: 0; }
     .list--main-nav .list__item .app-logo {
       width: 55%;
-      margin: 15px 0; }
-
-/* =====================
-	MODULE SCSS FILE  
-====================== */
-/* =====================
-	Race Calandar 
-====================== */
-.race-tile {
-  text-align: center;
-  background-color: black;
-  height: 150px;
-  margin: 10px;
-  position: relative;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-image: url("../img/circuit_backgrounds/junior_1.jpg"); }
-  .race-tile div.race-content {
-    bottom: 0;
-    position: absolute;
-    text-align: left;
-    padding: 10px;
-    width: 100%; }
-    .race-tile div.race-content strong {
-      font-size: 1.1em; }
-    .race-tile div.race-content span {
-      color: white;
-      font-weight: 200;
-      font-size: 0.9em; }
-    .race-tile div.race-content .icn {
-      float: right;
-      bottom: 10px;
-      margin-right: 20px;
-      color: white; }
+      margin: 25px 0; }

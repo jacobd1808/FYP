@@ -1,24 +1,36 @@
 
-  <ons-page ng-controller="calandarController">
-    <ons-toolbar>
-        <div class="left">
-            <ons-toolbar-button id='menu-icon' ng-click="leftMenu.toggleMenu()"> <ons-icon icon="ion-navicon"></ons-icon></ons-toolbar-button>
-        </div>
-        <div class="center" modifier="title">Race Calandar</div>
-        <div class="right">
-            <ons-toolbar-button id='show-champ-modal'> <ons-icon icon="ion-trophy"></ons-icon> </ons-toolbar-button>
-        </div>
-    </ons-toolbar>
-    <ng-include src="'components/champSelect.html'"></ng-include>
+        <ons-navigator var="myNav">
+    <ons-page id='calandarPage'>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button id='menu-icon' ng-click="leftMenu.toggleMenu()"> <ons-icon icon="ion-navicon"></ons-icon></ons-toolbar-button>
+                </div>
+                <div class="center" modifier="title">Race Calandar</div>
+                <div class="right">
+                    <ons-toolbar-button id='show-champ-modal'> <ons-icon icon="ion-trophy" id='champ-icon'></ons-icon> </ons-toolbar-button>
+                </div>
+            </ons-toolbar>
+            <ng-include src="'components/champSelect.html'"></ng-include>
 
-    <div ng-repeat="x in race" class='race-tile'> 
-        <div class='race-content'>
-            <strong> {{ x.name }} </strong> <br />
-            <span ng-bind="x.race_date | date:'MM . dd . yyyy'"> </span>
-            <div class='icn'> 
-                <i class="fa fa-star-o"></i>
-            </div>
-        </div>
-    </div>
-    Hello
-  </ons-page>
+            <div id='calandar-container'> </div>
+
+            <script id="calandar-template" type="text/x-handlebars-template">
+                <div class='race-tile' style="background-image:url('assets/img/circuits/backgrounds/{{ image }}')">
+                    <div class='race-content loadLink' data-page='circuits' data-tab='{{ id }}' onClick="myNav.pushPage('circuit_info.html')">
+                        <div> 
+                            <strong> 
+                            {{ name }}
+                            </strong> <br />
+                            <span> 
+                                {{ formatDate race_date }} 
+                            </span> 
+                        </div>
+                    </div>
+                     <div class='icn fav-icn save-to-fav no-parent-event' data-item-id=' {{ id }}' data-type='race'>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                </div>
+            </script>
+    </ons-page>
+           </ons-navigator>
+

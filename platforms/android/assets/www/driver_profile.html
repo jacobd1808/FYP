@@ -1,0 +1,29 @@
+
+    <ons-page id='driverProfile'>
+        <ons-toolbar>
+            <div class="left">
+                <ons-back-button modifier='cust-back' id='backBtn' data-page='drivers'> </ons-back-button>
+            </div>
+            <div class="center" modifier="title" id='page-title'>Driver Profile</div>
+            <div class="right">
+                <div class='icn fav-icn save-to-fav no-parent-event header-fav' data-item-id='works' data-type='driver' id='driver-fav-icon'>
+                        <i class="fa fa-star-o"></i>
+                </div>
+            </div>
+        </ons-toolbar>
+
+        <ons-tabbar position="top" id='tab-list'>
+            <ons-tab page="driver_bio.html" active="true" data-page='driver_bio' data-tab=''>
+                <span>Bio</span>
+            </ons-tab>
+            <ons-tab page="driver_news.html" active="false" data-page='driver_news' data-tab=''> 
+                <span>News</span>
+            </ons-tab>
+            <!--<ons-tab page="standings.html" active="false"> 
+                <span>Standings</span>
+            </ons-tab>
+            <ons-tab page="social.html" active="false"> 
+                <span>Social</span>
+            </ons-tab>-->
+        </ons-tabbar>
+    </ons-page>

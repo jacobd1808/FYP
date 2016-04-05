@@ -1,0 +1,15 @@
+
+  <ons-page id="news_driver.html">
+      	<div id='drivers-news-container'> </div>
+      	abc
+        <script id="drivers-news-template" type="text/x-handlebars-template">
+           <div class='news-tile loadLink' data-page='news_article' data-tab='{{ id }}' onClick="myNav.pushPage('news_article.html')">
+                <img src='assets/img/news/thumbnails/{{ thumb_url }}' alt=''/>
+                <div class='description'> 
+                    <small> {{ formatDate release_date }} </small>
+                    <h2> {{ title }} </h2> 
+                </div>
+            </div> 
+        </script>
+
+  </ons-page>
